@@ -1,2 +1,2 @@
 # JEZREL_POO
-Repositório usado na disciplina de POO
+Repositório usado na disciplina de POO de Jezrel
