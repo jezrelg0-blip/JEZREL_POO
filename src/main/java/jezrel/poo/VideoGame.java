@@ -75,7 +75,7 @@ public class VideoGame
     public boolean ehAAA()
     {
 
-        return getPreco() > 350;
+        return getPreco() >= 350;
 
     }
 
