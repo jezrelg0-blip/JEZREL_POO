@@ -16,9 +16,9 @@ public class SistemaLoja {
             sistema.cadastrarJogo(ZeldaBoTW);
             sistema.cadastrarJogo(Minecraft);
 
-        } catch(Exception jogoJaCadastrado) {
+        } catch(Exception JogoJaCadastrado) {
 
-            System.out.println("Erro: " + jogoJaCadastrado.getMessage());
+            System.out.println("Erro: " + JogoJaCadastrado.getMessage());
 
         }
 

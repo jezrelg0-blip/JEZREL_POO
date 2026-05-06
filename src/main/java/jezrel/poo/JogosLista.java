@@ -25,13 +25,13 @@ public class JogosLista {
 
     }
 
-    public void cadastrarJogo(VideoGame jogo) throws jogoJaCadastradoException {
+    public void cadastrarJogo(VideoGame jogo) throws JogoJaCadastradoException {
 
         for (VideoGame j : this.listaJogos) {
 
             if (j.equals(jogo)) {
 
-                throw new jogoJaCadastradoException("O jogo já esta cadastrado no sistema");
+                throw new JogoJaCadastradoException("O jogo já esta cadastrado no sistema");
 
             }
         }
