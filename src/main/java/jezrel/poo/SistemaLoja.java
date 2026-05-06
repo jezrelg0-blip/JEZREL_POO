@@ -23,7 +23,7 @@ public class SistemaLoja {
         }
 
         System.out.println("Jogos triplo A cadastrados no sistema");
-        for (VideoGame jogo : sistema.listaJogos) {
+        for (VideoGame jogo : sistema.getListaJogos()) {
 
             if(jogo.ehAAA()) {
 

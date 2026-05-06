@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class JogosLista {
 
-    protected List<VideoGame> listaJogos;
+    private List<VideoGame> listaJogos;
 
     public JogosLista() {
 
@@ -16,6 +16,12 @@ public class JogosLista {
     public JogosLista(List listaJogos) {
 
         this.listaJogos = listaJogos;
+
+    }
+
+    public List<VideoGame> getListaJogos() {
+
+        return this.listaJogos;
 
     }
 
