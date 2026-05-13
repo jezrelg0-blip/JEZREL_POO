@@ -7,10 +7,23 @@ public class SistemaAmigo {
     private List<Mensagem> mensagens;
     private List<Amigo> amigos;
 
+    public void cadastrarAmigo(String nome, String emailAmigo) {
+        amigos.add(new Amigo(nome, emailAmigo, null));
+    }
+
+    public Amigo pesquisarAmigo(String emailAmigo) {
+        for(Amigo a: this.amigos) {
+            if (a.getEmail().equals(emailAmigo))
+                return a;
+        }
+
+        return null;
+    }
+
     public List<Mensagem> pesquisaMensagensAnonimas() {
 
         List<Mensagem> mensagensAnonimas = new ArrayList<>();
-        for(Mensagem m: mensagens) {
+        for(Mensagem m: this.mensagens) {
             if(m.ehAnonima())
                 mensagensAnonimas.add(m);
         }
@@ -23,17 +36,17 @@ public class SistemaAmigo {
         boolean amigoSorteadoEncontrado = false;
         int posicaoListaAmigo = 0;
 
-        for(Amigo a: amigos) {
+        for(Amigo a: this.amigos) {
             if(a.getEmail().equals(emailDaPessoa)) {
                 pessoaEncontrada = true;
-                posicaoListaAmigo = amigos.indexOf(a);
+                posicaoListaAmigo = this.amigos.indexOf(a);
             }
             if(a.getEmailAmigoSorteado().equals(emailAmigoSorteado))
                 amigoSorteadoEncontrado = true;
         }
 
         if(pessoaEncontrada && amigoSorteadoEncontrado)
-            amigos.get(posicaoListaAmigo).setEmailAmigoSorteado(emailAmigoSorteado);
+            this.amigos.get(posicaoListaAmigo).setEmailAmigoSorteado(emailAmigoSorteado);
         else {
             throw new AmigoInexistenteException ("Algum dos emails inseridos não está associado à nenhum amigo cadastrado");
         }
@@ -44,7 +57,7 @@ public class SistemaAmigo {
     }
 
     public String pesquisaAmigoSecretoDe(String emailDaPessoa) throws AmigoInexistenteException, AmigoNaoSorteadoException {
-        for(Amigo a: amigos) {
+        for(Amigo a: this.amigos) {
             if(a.getEmail().equals(emailDaPessoa)) {
                 if(a.getEmailAmigoSorteado() != null)
                     return a.getEmailAmigoSorteado();

@@ -18,7 +18,10 @@ public class MensagemParaAlguem extends Mensagem {
     }
 
     public String getTextoCompletoAExibir() {
-    return String.format("Mensagem de %s para %s. Texto: %s", getEmailRemetente(), getEmailDestinatario(), getTexto());
+        if(ehAnonima())
+            return String.format("Mensagem anõnima para %s. Texto: %s", this.emailDestinatario, getTexto());
+        else
+            return String.format("Mensagem de %s para %s. Texto: %s", getEmailRemetente(), getEmailDestinatario(), getTexto());
     }
 
 }
