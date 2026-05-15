@@ -15,8 +15,23 @@ public class TestaSistemaAmigo {
         } catch (AmigoInexistenteException o) {
             System.out.println(o.getMessage());
         }
+
+        sistema.enviarMensagemParaAlguem("kkk otário", "maria0@gmail.com","jose0@gmail.com", true );
+        sistema.enviarMensagemParaTodos("Nextage bb", "maria0@gmail.com", true);
+
+        for(Mensagem m : sistema.pesquisaMensagensAnonimas()) {
+            System.out.println(m.getTextoCompletoAExibir());
+        }
+
+        try {
+            if (sistema.pesquisaAmigoSecretoDe("jose0@gmail.com").equals("maria0@gmail.com"))
+                System.out.println("Ok");
+        } catch(AmigoNaoSorteadoException o) {
+            System.out.println(o.getMessage());
+        } catch(AmigoInexistenteException o) {
+            System.out.println(o.getMessage());
+        }
+
     }
-
-
 
 }

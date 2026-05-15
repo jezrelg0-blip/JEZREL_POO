@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 public class SistemaAmigo {
 
-    private List<Mensagem> mensagens;
-    private List<Amigo> amigos;
+    private List<Mensagem> mensagens = new ArrayList<>();
+    private List<Amigo> amigos = new ArrayList<>();
 
     public void cadastrarAmigo(String nome, String emailAmigo) {
         amigos.add(new Amigo(nome, emailAmigo, null));
@@ -41,7 +41,7 @@ public class SistemaAmigo {
                 pessoaEncontrada = true;
                 posicaoListaAmigo = this.amigos.indexOf(a);
             }
-            if(a.getEmailAmigoSorteado().equals(emailAmigoSorteado))
+            if(a.getEmail().equals(emailAmigoSorteado))
                 amigoSorteadoEncontrado = true;
         }
 
@@ -68,5 +68,19 @@ public class SistemaAmigo {
         }
 
         throw new AmigoInexistenteException("Esta pessoa não está cadastrada como participante");
+    }
+
+    public void enviarMensagemParaAlguem(String texto,String emailRemetente, String emailDestinatario, boolean anonima) {
+        this.mensagens.add(new MensagemParaAlguem(texto, emailRemetente, anonima, emailDestinatario));
+    }
+
+    public void enviarMensagemParaTodos(String texto, String emailRemetente, boolean anonima) {
+        this.mensagens.add(new MensagemParaTodos(texto, emailRemetente,anonima));
+    }
+
+    public void sortear() {
+        List<Amigo> amigosNaoSorteados = new ArrayList<>(this.amigos);
+
+
     }
 }

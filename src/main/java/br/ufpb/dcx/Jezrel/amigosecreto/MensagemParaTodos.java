@@ -7,6 +7,10 @@ public class MensagemParaTodos extends Mensagem{
     }
 
     public String getTextoCompletoAExibir() {
-        return String.format("Mensagem de %s para todos. Texto: %s", getEmailRemetente(), getTexto());
+        if(ehAnonima())
+            return String.format("Mensagem anônima para todos. Texto: %s", getTexto());
+        else
+            return String.format("Mensagem de %s para todos. Texto: %s", getEmailRemetente(), getTexto());
     }
+
 }
