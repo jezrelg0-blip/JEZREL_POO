@@ -16,7 +16,13 @@ public class TestaSistemaAmigoGUI {
             String nome = leitor.nextLine();
             System.out.println("Digite o email do " + (k+1) + " amigo");
             String emailAmigo = leitor.nextLine();
-            sistema.cadastrarAmigo(nome, emailAmigo);
+            sistema.cadastraAmigo(nome, emailAmigo);
+        }
+
+        try {
+            sistema.sortear();
+        } catch(AmigoInexistenteException o) {
+
         }
 
         for(int i = 0; i < quantidadeAmigos; i++) {
@@ -46,6 +52,16 @@ public class TestaSistemaAmigoGUI {
 
         sistema.enviarMensagemParaTodos(emailRemetente, texto, anonima);
         leitor.close();
+
+        System.out.println("Exibindo relatório do sorteio...");
+        for(Amigo a : sistema.getAmigos()) {
+
+            try {
+                System.out.printf("O amigo secreto de %s é %s%n", a.getNome(), sistema.pesquisaAmigo(a.getEmailAmigoSorteado()).getEmail());
+            } catch(AmigoInexistenteException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 }

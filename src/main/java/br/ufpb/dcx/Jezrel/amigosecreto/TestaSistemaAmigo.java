@@ -6,8 +6,8 @@ public class TestaSistemaAmigo {
 
         SistemaAmigo sistema = new SistemaAmigo();
 
-        sistema.cadastrarAmigo("José", "jose0@gmail.com");
-        sistema.cadastrarAmigo("Maria", "maria0@gmail.com");
+        sistema.cadastraAmigo("José", "jose0@gmail.com");
+        sistema.cadastraAmigo("Maria", "maria0@gmail.com");
 
         try {
             sistema.configuraAmigoSecretoDe("jose0@gmail.com", "maria0@gmail.com");
@@ -16,7 +16,7 @@ public class TestaSistemaAmigo {
             System.out.println(o.getMessage());
         }
 
-        sistema.enviarMensagemParaAlguem("kkk otário", "maria0@gmail.com","jose0@gmail.com", true );
+        sistema.enviarMensagemParaAlguem("kkk", "maria0@gmail.com","jose0@gmail.com", true );
         sistema.enviarMensagemParaTodos("Nextage bb", "maria0@gmail.com", true);
 
         for(Mensagem m : sistema.pesquisaMensagensAnonimas()) {

@@ -7,17 +7,30 @@ public class SistemaAmigo {
     private List<Mensagem> mensagens = new ArrayList<>();
     private List<Amigo> amigos = new ArrayList<>();
 
-    public void cadastrarAmigo(String nome, String emailAmigo) {
+
+    public List<Mensagem> getMensagens() {
+        return this.mensagens;
+    }
+
+    public List<Amigo> getAmigos() {
+        return this.amigos;
+    }
+
+    public void cadastraAmigo(String nome, String emailAmigo) throws AmigoJaExisteException {
+        for(Amigo a : this.amigos) {
+            if(a.getNome().equals(nome)) {
+                throw new AmigoJaExisteException("Amigo já cadastrado");
+            }
+        }
         amigos.add(new Amigo(nome, emailAmigo, null));
     }
 
-    public Amigo pesquisarAmigo(String emailAmigo) {
+    public Amigo pesquisaAmigo(String emailAmigo) throws AmigoInexistenteException {
         for(Amigo a: this.amigos) {
             if (a.getEmail().equals(emailAmigo))
                 return a;
-        }
+        } throw new AmigoInexistenteException("Amigo não cadastrado");
 
-        return null;
     }
 
     public List<Mensagem> pesquisaMensagensAnonimas() {
@@ -78,9 +91,13 @@ public class SistemaAmigo {
         this.mensagens.add(new MensagemParaTodos(texto, emailRemetente,anonima));
     }
 
-    public void sortear() {
+    public void sortear() throws AmigoInexistenteException{
         List<Amigo> amigosNaoSorteados = new ArrayList<>(this.amigos);
-
+        for(Amigo p : this.amigos) {
+            int posicaoDaListaSorteada = (int)(Math.random()*amigosNaoSorteados.size());
+            configuraAmigoSecretoDe(p.getEmail(), amigosNaoSorteados.get(posicaoDaListaSorteada).getEmail());
+            amigosNaoSorteados.remove(posicaoDaListaSorteada);
+        }
 
     }
 }
