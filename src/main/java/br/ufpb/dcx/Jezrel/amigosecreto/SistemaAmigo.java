@@ -19,7 +19,7 @@ public class SistemaAmigo {
     public void cadastraAmigo(String nome, String emailAmigo) throws AmigoJaExisteException {
         for(Amigo a : this.amigos) {
             if(a.getNome().equals(nome)) {
-                throw new AmigoJaExisteException("Amigo já cadastrado");
+                throw new AmigoJaExisteException("Esse amigo já está cadastrado no sistema");
             }
         }
         amigos.add(new Amigo(nome, emailAmigo, null));
