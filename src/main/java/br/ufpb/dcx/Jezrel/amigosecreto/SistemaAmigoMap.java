@@ -9,9 +9,6 @@ public class SistemaAmigoMap {
     private Map<String, Mensagem> mensagens = new HashMap<>();
     private Map<String, Amigo> amigos = new HashMap<>();
 
-    public Map<String, String> getMensagens() {
-        return mensagens;
-    }
 
     public Map<String, Amigo> getAmigos() {
         return amigos;
@@ -22,7 +19,7 @@ public class SistemaAmigoMap {
             throw new AmigoJaExisteException ("Esse amigo já está cadastrado no sistema");
         }
         else {
-            amigos.put(emailAmigo, new Amigo(nomeAmigo, emailAmigo, null));
+            this.amigos.put(emailAmigo, new Amigo(nomeAmigo, emailAmigo, null));
         }
     }
 
@@ -40,7 +37,18 @@ public class SistemaAmigoMap {
         return mensagensAnonimas;
         }
 
-    public void configuraAmigoSecretoDe(String emailDaPessoa, String emailAmigoSorteado) {
+    public void configuraAmigoSecretoDe(String emailDaPessoa, String emailAmigoSorteado) throws AmigoInexistenteException {
+        if (this.amigos.containsKey(emailDaPessoa) && this.amigos.containsKey(emailAmigoSorteado)) {
+            this.amigos.get(emailDaPessoa).setEmailAmigoSorteado(emailAmigoSorteado);
+        }
+        else {
+            throw new AmigoInexistenteException("pessoa ou amigo não encontrado no sistema.");
+        }
+    }
+
+    public List<Mensagem> pesquisaTodasAsMensagens() { return (List<Mensagem>)this.mensagens.values(); }
+
+    public String pesquisaAmigoSecretoDe(String emailDaPessoa) throws AmigoInexistenteException, AmigoNaoSorteadoException {
 
     }
 

@@ -8,10 +8,6 @@ public class SistemaAmigo {
     private List<Amigo> amigos = new ArrayList<>();
 
 
-    public List<Mensagem> getMensagens() {
-        return this.mensagens;
-    }
-
     public List<Amigo> getAmigos() {
         return this.amigos;
     }
