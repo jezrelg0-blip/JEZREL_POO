@@ -1,8 +1,9 @@
 package jezrel.poo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class VideoGame
+public class VideoGame implements Serializable
 {
 
     private String nome;
