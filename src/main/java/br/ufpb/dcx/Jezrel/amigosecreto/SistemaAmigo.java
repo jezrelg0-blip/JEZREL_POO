@@ -15,7 +15,7 @@ public class SistemaAmigo {
     public void cadastraAmigo(String nome, String emailAmigo) throws AmigoJaExisteException {
         for(Amigo a : this.amigos) {
             if(a.getNome().equals(nome)) {
-                throw new AmigoJaExisteException("Esse amigo já está cadastrado no sistema");
+                throw new AmigoJaExisteException("Esse amigo já está cadastrado no sistema.");
             }
         }
         amigos.add(new Amigo(nome, emailAmigo, null));
@@ -25,7 +25,7 @@ public class SistemaAmigo {
         for(Amigo a: this.amigos) {
             if (a.getEmail().equals(emailAmigo))
                 return a;
-        } throw new AmigoInexistenteException("Amigo não cadastrado");
+        } throw new AmigoInexistenteException("Amigo não cadastrado.");
 
     }
 
@@ -57,7 +57,7 @@ public class SistemaAmigo {
         if(pessoaEncontrada && amigoSorteadoEncontrado)
             this.amigos.get(posicaoListaAmigo).setEmailAmigoSorteado(emailAmigoSorteado);
         else {
-            throw new AmigoInexistenteException ("Algum dos emails inseridos não está associado à nenhum amigo cadastrado");
+            throw new AmigoInexistenteException ("Algum dos emails inseridos não está associado à nenhum amigo cadastrado.");
         }
     }
 
@@ -71,12 +71,12 @@ public class SistemaAmigo {
                 if(a.getEmailAmigoSorteado() != null)
                     return a.getEmailAmigoSorteado();
                 else {
-                    throw new AmigoNaoSorteadoException("Esta pessoa ainda não sorteou seu amigo secreto");
+                    throw new AmigoNaoSorteadoException("Esta pessoa ainda não sorteou seu amigo secreto.");
                 }
             }
         }
 
-        throw new AmigoInexistenteException("Esta pessoa não está cadastrada como participante");
+        throw new AmigoInexistenteException("Esta pessoa não está cadastrada como participante.");
     }
 
     public void enviarMensagemParaAlguem(String texto,String emailRemetente, String emailDestinatario, boolean anonima) {
@@ -94,6 +94,6 @@ public class SistemaAmigo {
             configuraAmigoSecretoDe(p.getEmail(), amigosNaoSorteados.get(posicaoDaListaSorteada).getEmail());
             amigosNaoSorteados.remove(posicaoDaListaSorteada);
         }
-
     }
+
 }

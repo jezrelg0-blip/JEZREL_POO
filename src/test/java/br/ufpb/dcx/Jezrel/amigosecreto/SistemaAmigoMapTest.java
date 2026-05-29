@@ -5,20 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SistemaAmigoTest {
+public class SistemaAmigoMapTest {
 
-    SistemaAmigo sistema;
+    SistemaAmigoMap sistema;
 
     @BeforeEach
     void setUp()  {
-        this.sistema = new SistemaAmigo();
+        this.sistema = new SistemaAmigoMap();
     }
 
     @Test
@@ -61,7 +60,7 @@ public class SistemaAmigoTest {
     void testEnviarMensagemParaAlguem() {
         assertTrue(sistema.pesquisaTodasAsMensagens().isEmpty());
         sistema.enviarMensagemParaAlguem("texto", "ayla@dcx.ufpb.br", "rodrigo@dcx.ufpb.br", true);
-        List<Mensagem> mensagensAchadas = sistema.pesquisaTodasAsMensagens();
+        List<Mensagem> mensagensAchadas = (sistema.pesquisaTodasAsMensagens());
         assertEquals(1, mensagensAchadas.size());
         assertTrue(mensagensAchadas.get(0) instanceof MensagemParaAlguem);
         assertTrue(mensagensAchadas.get(0).getTexto().equals("texto"));
