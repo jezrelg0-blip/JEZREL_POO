@@ -1,4 +1,4 @@
-package jezrel.poo;
+package br.ufpb.dcx.Jezrel.sistemaVideoGame;
 
 public class SistemaLoja {
 
