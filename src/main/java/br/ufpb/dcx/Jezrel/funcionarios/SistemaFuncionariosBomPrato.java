@@ -34,6 +34,7 @@ public class SistemaFuncionariosBomPrato implements SistemaFuncionarios{
         if(funcionarioJaExiste(cpf)) {
             this.funcionarios.get(cpf).setSalario(novoSalario);
         }
+        throw new FuncionarioInexistenteException("Esse funcionário não está cadastrado no sistema");
     }
 
     public int contarFuncionariosDoTipo(TipoFuncionario tipoFuncionario) {
