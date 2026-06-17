@@ -5,24 +5,44 @@ public class GravadorVideoGame {
 
     public static final String NOME_ARQUIVO = "videogames.txt";
 
-    public <o extends Serializable> boolean gravarjogo(Object o) {
+    public <O extends Serializable> boolean gravarJogo(O o) {
+        ObjectOutputStream gravador = null;
+
         try {
-            ObjectOutputStream gravador = new ObjectOutputStream(new FileOutputStream(NOME_ARQUIVO));
+            gravador = new ObjectOutputStream(new FileOutputStream(NOME_ARQUIVO));
             gravador.writeObject(o);
             return true;
         } catch (IOException e) {
             System.err.println("Erro ao gravar objeto: " + (e.getMessage()));
             return false;
+        } finally {
+            if(gravador != null) {
+                try {
+                    gravador.close();
+                } catch(IOException e) {
+                    System.err.println("Erro ao fechar o arquivo" + (e.getMessage()));
+                }
+            }
         }
     }
 
-    public <o extends Serializable> o ler(String nomeArquivo) {
+    public <O extends Serializable> O ler(String nomeArquivo) {
+        ObjectInputStream leitor = null;
+
         try {
-            ObjectInputStream leitor = new ObjectInputStream(new FileInputStream(nomeArquivo));
-            return (o) leitor.readObject();
+            leitor = new ObjectInputStream(new FileInputStream(nomeArquivo));
+            return (O) leitor.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Erro ao ler objeto: " + (e.getMessage()));
             return null;
+        } finally {
+            if(leitor != null) {
+                try{
+                    leitor.close();
+                } catch(IOException e) {
+                    System.err.println("Erro ao fechar o arquivo: " + (e.getMessage()));
+                }
+            }
         }
     }
 
