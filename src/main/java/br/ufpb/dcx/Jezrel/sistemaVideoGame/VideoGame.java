@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class VideoGame implements Serializable
 {
-
     private String nome;
+    private int codigo;
     private double preco;
 
     public VideoGame()
@@ -17,10 +17,11 @@ public class VideoGame implements Serializable
 
     }
 
-    public VideoGame(String nome, double preco)
+    public VideoGame(String nome,int codigo, double preco)
     {
 
         this.nome = nome;
+        this.codigo = codigo;
         this.preco = preco;
 
     }
@@ -51,6 +52,14 @@ public class VideoGame implements Serializable
 
         this.preco = preco;
 
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     @Override

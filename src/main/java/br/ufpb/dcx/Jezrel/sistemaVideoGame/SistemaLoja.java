@@ -16,8 +16,8 @@ public class SistemaLoja {
     }
 
     public void recuperarDados() {
+        Map<Integer, VideoGame> jogos = new HashMap<>();
+
 
     }
-
-
 }

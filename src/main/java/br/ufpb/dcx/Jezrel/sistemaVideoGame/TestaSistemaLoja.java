@@ -7,8 +7,8 @@ public class TestaSistemaLoja {
 
         JogosLista sistema = new JogosLista();
 
-        VideoGame Minecraft = new VideoGame("Minecraft", 100);
-        VideoGame ZeldaBoTW = new VideoGame("The legend of Zelda: Breath of the Wild", 400);
+        VideoGame Minecraft = new VideoGame("Minecraft", 134, 100);
+        VideoGame ZeldaBoTW = new VideoGame("The legend of Zelda: Breath of the Wild", 135, 400);
 
 
         try {
