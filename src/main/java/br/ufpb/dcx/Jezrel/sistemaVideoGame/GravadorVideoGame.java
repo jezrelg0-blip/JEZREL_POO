@@ -3,13 +3,17 @@ package br.ufpb.dcx.Jezrel.sistemaVideoGame;
 import java.io.*;
 public class GravadorVideoGame {
 
-    public static final String NOME_ARQUIVO = "videogames.txt";
+    private final String nomeArquivo;
 
-    public <O extends Serializable> boolean gravarJogo(O o) {
+    public GravadorVideoGame(String nomeArquivo) {
+        this.nomeArquivo = nomeArquivo;
+    }
+
+    public <O extends Serializable> boolean gravarJogos(O o) {
         ObjectOutputStream gravador = null;
 
         try {
-            gravador = new ObjectOutputStream(new FileOutputStream(NOME_ARQUIVO));
+            gravador = new ObjectOutputStream(new FileOutputStream(nomeArquivo));
             gravador.writeObject(o);
             return true;
         } catch (IOException e) {

@@ -1,6 +1,6 @@
 package br.ufpb.dcx.Jezrel.sistemaVideoGame;
 
-public class TestaSistemaLoja {
+public class TestaSistemaLojaLista {
 
 
     public static void main(String[] args) {
