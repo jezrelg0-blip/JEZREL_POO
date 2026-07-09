@@ -1,4 +1,4 @@
-package br.ufpb.dcx.Jezrel.turismo;
+package br.ufpb.dcx.Jezrel.turismo.gui;
 
 import javax.swing.*;
 import java.awt.*;
