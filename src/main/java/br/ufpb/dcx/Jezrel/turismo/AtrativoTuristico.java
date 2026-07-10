@@ -59,7 +59,7 @@ public class AtrativoTuristico implements Serializable {
     }
 
     public boolean ehDoTipo(TipoAtrativo tipo) {
-        return this.tipo == tipo;
+        return this.tipo.equals(tipo);
     }
 
     @Override
@@ -74,7 +74,15 @@ public class AtrativoTuristico implements Serializable {
         return Objects.hashCode(nome);
     }
 
+    @Override
     public String toString() {
-        return "| Nome: " + (this.nome) + "| Descrição: " + (this.descricao) + "| Tipo: " + (this.tipo) + "| Sites para mais informações: " + (this.sitesParaMaisInfo.toString());
+        String textoSites = (this.sitesParaMaisInfo == null) ? "Nenhum site cadastrado" : this.sitesParaMaisInfo.toString();
+        return "• Nome: " + this.nome + "\n" +
+                "  Descrição: " + this.descricao + "\n" +
+                "  Tipo: " + this.tipo + "\n" +
+                "  Sites para mais informações: " + textoSites + "\n" +
+                "---------------------------------------------";
     }
+
+
 }

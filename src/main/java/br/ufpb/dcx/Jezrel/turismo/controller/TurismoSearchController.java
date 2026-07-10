@@ -45,9 +45,12 @@ public class TurismoSearchController implements ActionListener {
             default:
                 return;
         }
-        JOptionPane.showMessageDialog(janelaPrincipal,"Atrativos turísticos do tipo escolhido(" + tipo.toString() + ")");
+        String textoCompleto = "Atrativos turísticos do tipo escolhido:(" + (tipo.toString() + ")\n");
         for(AtrativoTuristico a : sistema.pesquisaAtrativosDoTipo(tipo)) {
-            JOptionPane.showMessageDialog(janelaPrincipal,a.toString());
+            textoCompleto += a.toString() + "\n";
         }
+        JOptionPane.showMessageDialog(janelaPrincipal, textoCompleto);
     }
+
 }
+

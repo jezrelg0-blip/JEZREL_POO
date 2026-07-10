@@ -30,16 +30,25 @@ public class TurismoAddController implements ActionListener {
         switch (opcao) {
             case 1:
                 tipo = FORMACAO_ROCHOSA;
+                break;
             case 2:
                 tipo = CACHOEIRA;
+                break;
             case 3:
                 tipo = PRAIA;
+                break;
             case 4:
                 tipo = FLORESTA_BOSQUE;
+                break;
             case 5:
                 tipo = IGREJA;
+                break;
             case 6:
                 tipo = MUSEU;
+                break;
+            default:
+                JOptionPane.showMessageDialog(janelaPrincipal, "Opção inválida!");
+                return;
         }
         try {
             sistema.cadastraAtrativo(nome, descricao, tipo);

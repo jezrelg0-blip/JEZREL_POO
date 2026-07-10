@@ -78,7 +78,7 @@ public class SistemaAtrativosMap implements SistemaAtrativos{
     public int contaAtrativosDoTipo(TipoAtrativo tipoAtrativo) {
         int contador = 0;
         for(AtrativoTuristico a : this.atrativos.values()) {
-            if(a.getTipo() == tipoAtrativo) {
+            if(a.getTipo().equals(tipoAtrativo)) {
                 contador++;
             }
         }

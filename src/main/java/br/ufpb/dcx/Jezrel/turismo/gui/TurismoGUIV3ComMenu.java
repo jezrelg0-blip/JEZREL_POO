@@ -12,7 +12,7 @@ import java.awt.*;
 public class TurismoGUIV3ComMenu extends JFrame {
 
     JLabel linha1, linha2;
-    ImageIcon paisagem = new ImageIcon("./imgs/praia.jpg");
+    ImageIcon paisagem = new ImageIcon("./imgs/paisagem.jpg");
     JMenuBar barraDeMenu = new JMenuBar();
     SistemaAtrativosMap sistema = new SistemaAtrativosMap();
 
